@@ -1,7 +1,3 @@
-# Dean's Remote Switch Web server to Arduino Bluetooth Clients
-# The Server simply controls the local bluetooth port for communication
-# in Serial form to Bluetooth Receivers
-#
 # This is an Alpha Prototype - Rev. 1 last modified 02/10/2012
 # Copyright 2012 Fei Manheche
 # http://robobo.org
@@ -12,7 +8,6 @@ import struct
 #-------------------------------------------------------------------------------
 #  user config
 #-------------------------------------------------------------------------------
-
 
 verbose=True
 debug=True
@@ -25,8 +20,7 @@ if bluetoothlib=='bluetooth':
 else :
   # when using 'serial' library use com ports. Note: outgoing (with 'Dev B')
   plug1 = "com11"
-  plug2 = "com12"
-  
+  plug2 = "com12"  
 
 #///////////////////////////////////////////////////////////////////////////////
 if bluetoothlib=='bluetooth': 
@@ -60,7 +54,7 @@ if bluetoothlib=='bluetooth':
           print "Ooops! \n Unable to connect to Bluetooth Client 2"
 	  pass
 
-else :
+else:
  
   ser1 = serial.Serial()
   ser1.baudrate=9600
@@ -92,25 +86,7 @@ class MyHandler(SimpleHTTPRequestHandler):
         environ={'REQUEST_METHOD':'POST'})
       code = form['code'].value
       print 'Sent:', code
-      if code == 'l1':
-	ser1.send('l')
-      elif code == 'm1':
-	ser1.send('m')
-      if code == 'n1':
-        ser1.send('n')
-      elif code == 'o1':
-        ser1.send('o')
-      elif code == 'l2':
-	ser2.send('l')
-      elif code == 'm2':
-        ser2.send('m')
-      if code == 'n2':
-        ser2.send('n')
-      elif code == 'o2':
-        ser2.send('o')
-
-#      ser1.close()
-#      ser2.close()
+	ser1.send(code)
       self.send_response(200)
       self.send_header('Content-type', 'text/html')
       return
