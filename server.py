@@ -20,7 +20,7 @@ debug=True
 bluetoothlib='bluetooth'
 #bluetoothlib='serial'
 if bluetoothlib=='bluetooth':
-  plug1 = "00:12:03:27:77:63"
+  plug1 = "00:12:08:10:06:22"
   plug2 = "00:12:08:17:13:65"
 else :
   # when using 'serial' library use com ports. Note: outgoing (with 'Dev B')
@@ -92,27 +92,34 @@ class MyHandler(SimpleHTTPRequestHandler):
         environ={'REQUEST_METHOD':'POST'})
       code = form['code'].value
       print 'Sent:', code
-      if code == 'l1':
-	ser1.send('l')
-      elif code == 'm1':
-	ser1.send('m')
-      if code == 'n1':
-        ser1.send('n')
-      elif code == 'o1':
-        ser1.send('o')
+      if code == 'a':
+	ser1.send('a')
+      elif code == 'g':
+	ser1.send('g')
+      elif code == 'h':
+        ser1.send('h')
+      elif code == 'i':
+        ser1.send('i')
+      elif code == 'e':
+        ser1.send('e')
+      elif code == 'f':
+        ser1.send('f')
+      elif code == 'i':
+        ser1.send('i')
+'''
       elif code == 'l2':
 	ser2.send('l')
       elif code == 'm2':
         ser2.send('m')
-      if code == 'n2':
+      if code == 'n2'
         ser2.send('n')
       elif code == 'o2':
         ser2.send('o')
-
+'''
 #      ser1.close()
 #      ser2.close()
-      self.send_response(200)
-      self.send_header('Content-type', 'text/html')
+    #self.send_response(200)
+    #self.send_header('Content-type', 'text/html')
       return
     return self.do_GET()
 

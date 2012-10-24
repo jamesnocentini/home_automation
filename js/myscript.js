@@ -1,6 +1,3 @@
-
-
-
 function button(value) {
 	if (window.XMLHttpRequest) {
 		request = new XMLHttpRequest();
@@ -34,13 +31,14 @@ $(document).ready(function(){
   $("#tv_on").hide();
   $("#pir_untriggered").show(); // is character e
   $("#pir_triggered").hide();
-  $("#blights_off").show(); // is character b
+  $("#blights_off").show(); // is character b note: this one will change...
   $("#blights_on").hide();
   $("#curtains_closed").show(); // is character f
   $("#curtains_opened").hide();
 
 //click handling
-  $('#lights1 > a').click(function(){ 
+  $('#lights1 > a').click(function(){
+    onClick="button('a')" 
     $("#llights_on").toggle();
     $("#llights_off").toggle();
   });
