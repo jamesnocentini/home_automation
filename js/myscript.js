@@ -1,62 +1,71 @@
+
+
+
+function button(value) {
+	if (window.XMLHttpRequest) {
+		request = new XMLHttpRequest();
+	} else if (window.ActiveXObject) {
+		try {
+			request = new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e) {
+			try {
+				request = new ActiveXObject("Microsoft.XMLHTTP");
+			} catch (e) {}
+		}
+	}
+request.open('POST', '/arduino', true);
+request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+request.setRequestHeader('Content-length', value.length);
+request.setRequestHeader('Connection', 'close');
+request.send('code=' + value);
+return false;
+}
+
 $(document).ready(function(){
-  $("#door_off").show();
+//  $("#homefeatures").delay(500).fadeIn(500);
+  $("#door_off").show(); //door is character g
   $("#door_on").hide();
-  $('#door1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
-    $("#door_on").toggle();
-    $("#door_off").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#llights_off").show();
+  $("#llights_off").show(); //ground floor /lounge is character a
   $("#llights_on").hide();
-  $('#lights1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
-    $("#llights_on").toggle();
-    $("#llights_off").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#music_off").show();
+  $("#music_off").show(); // is character h
   $("#music_on").hide();
-  $('#music1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
-    $("#music_on").toggle();
-    $("#music_off").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#tv_off").show();
+  $("#tv_off").show(); // is character i
   $("#tv_on").hide();
-  $('#tv1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event
-    $("#tv_on").toggle();
-    $("#tv_off").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#pir_untrigged").show();
-  $("#pir_trigged").hide();
-  $('#pir1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
-    $("#pir_trigged").toggle();	
-    $("#pir_untrigged").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#blights_off").show();
+  $("#pir_untriggered").show(); // is character e
+  $("#pir_triggered").hide();
+  $("#blights_off").show(); // is character b
   $("#blights_on").hide();
-  $('#lights2 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
-    $("#blights_on").toggle();
-    $("#blights_off").toggle(); //url('../images/home_off.png') no-repeat;
-  });
-});
-
-$(document).ready(function(){
-  $("#curtains_closed").show();
+  $("#curtains_closed").show(); // is character f
   $("#curtains_opened").hide();
-  $('#curtains1 > a').click(function(){ // For demo's sake we attach the crossFade to a click event.
+
+//click handling
+  $('#lights1 > a').click(function(){ 
+    $("#llights_on").toggle();
+    $("#llights_off").toggle();
+  });
+  $('#door1 > a').click(function(){
+    $("#door_on").toggle();
+    $("#door_off").toggle();
+  });
+  $('#music1 > a').click(function(){ 
+    $("#music_on").toggle();
+    $("#music_off").toggle();
+  });
+  $('#curtains1 > a').click(function(){ 
     $("#curtains_opened").toggle();
-    $("#curtains_closed").toggle(); //url('../images/home_off.png') no-repeat;
+    $("#curtains_closed").toggle();
+  });
+  $('#tv1 > a').click(function(){  
+    $("#tv_on").toggle();
+    $("#tv_off").toggle();
+  });
+  $('#pir1 > a').click(function(){ 
+    $("#pir_trigged").toggle();	
+    $("#pir_untrigged").toggle();
+  });
+  $('#lights2 > a').click(function(){ 
+    $("#blights_on").toggle();
+    $("#blights_off").toggle();
   });
 });

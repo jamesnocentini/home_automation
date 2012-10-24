@@ -20,7 +20,7 @@
 <body>
 	<div id="home" data-role="page" data-title="Home Automation">
 		<div data-role="header">
-			<h1>My Home</h1>
+			<h1>Home Automation | My Home</h1>
 			<a href="http://robobo.org" data-icon="arrow-r">Robobo.org</a>
 			<a href="#setup" data-icon="gear" data-transition="flip">Setup</a>
 		</div>
@@ -29,7 +29,7 @@
 		
 			<div id="door" class="ui-block-a">
 				<div id="door1">
-				<a href="#">
+				<a href="#" onClick="button('l1')">
 				<div id="door_off"><input type="image" src="images/door_closed.png" width=80px height=80px></div>
 				<div id="door_on"><input type="image" src="images/door_opened.png" width=80px height=80px></div>
 				</a>
@@ -66,8 +66,8 @@
 			<div class="ui-block-b">
 				<div id="pir1">
 				<a href="#">
-				<div id="pir_untrigged"><input type="image" src="images/pir_untrigged.png" width=80px height=80px></div> <!-- PIR means personal Infrared i.e. the sensors that detect people in a room-->
-				<div id="pir_trigged"><input type="image" src="images/pir_trigged.png" width=80px height=80px></div>
+				<div id="pir_untriggered"><input type="image" src="images/pir_untriggered.png" width=80px height=80px></div> <!-- PIR means personal Infrared i.e. the sensors that detect people in a room-->
+				<div id="pir_triggered"><input type="image" src="images/pir_triggered.png" width=80px height=80px></div>
 				</a>
 				</div>
 			</div>
