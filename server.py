@@ -1,7 +1,3 @@
-# Dean's Remote Switch Web server to Arduino Bluetooth Clients
-# The Server simply controls the local bluetooth port for communication
-# in Serial form to Bluetooth Receivers
-#
 # This is an Alpha Prototype - Rev. 1 last modified 02/10/2012
 # Copyright 2012 Fei Manheche
 # http://robobo.org
@@ -76,8 +72,6 @@ else :
   ser2.open() # initializes bluetooth master (me) to slave (nxt) connection
   print "connected RCX 2"
 
-#>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 print "\nAll possible clients have been connected and the webserver is now running"
 print "\n If there are any 'KNOWN' unconnected clients you may try restarting the server to fix"
 
@@ -106,20 +100,6 @@ class MyHandler(SimpleHTTPRequestHandler):
         ser1.send('f')
       elif code == 'i':
         ser1.send('i')
-'''
-      elif code == 'l2':
-	ser2.send('l')
-      elif code == 'm2':
-        ser2.send('m')
-      if code == 'n2'
-        ser2.send('n')
-      elif code == 'o2':
-        ser2.send('o')
-'''
-#      ser1.close()
-#      ser2.close()
-    #self.send_response(200)
-    #self.send_header('Content-type', 'text/html')
       return
     return self.do_GET()
 
