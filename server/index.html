@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>Home Automation 1.0 - Robobo Style</title>
+<style type="text/css">
+body {  
+	margin:auto;
+	width:20ems;
+} 
+
+.center
+{
+	margin-left:auto;
+	margin-right:auto;
+	width:70%;
+}
+
+div.container
+{
+margin:auto;
+width:30em;
+border:1em solid;
+}
+div.box
+{
+box-sizing:border-box;
+-moz-box-sizing:border-box; /* Firefox */
+-webkit-box-sizing:border-box; /* Safari */
+width:50%;
+border:1em solid grey;
+float:left;
+}
+
+h1 {text-align:center}
+h2 {text-align:center}
+h3 {text-align:left}
+</style>
+<script type="text/javascript">
+function button(value) {
+  if (window.XMLHttpRequest) {
+   request = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      request = new ActiveXObject("Msxml2.XMLHTTP");
+    } catch (e) {
+      try {
+        request = new ActiveXObject("Microsoft.XMLHTTP");
+      } catch (e) {}
+    }
+  }
+  request.open('POST', '/arduino', true);
+  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  request.setRequestHeader('Content-length', value.length);
+  request.setRequestHeader('Connection', 'close');
+  request.send('code=' + value);
+  return false;
+}
+
+</script>
+</head>
+
+<body>
+<div class="center">
+</div>
+<p></p>
+
+<div class="container">
+
+<div class="box">
+<h3><font color="white"> Control Switch 1</font> </h3>
+<form name="remoteform" method="post">
+<input type="hidden" name="code">
+<input type="button" value="Turn Switch on" onClick="button('l1')" >
+<input type="button" value="Turn Switch off" onClick="button('m1')" >
+
+</form>
+
+<form name="remoteform" method="post">
+<input type="hidden" name="code">
+<input type="button" value="Turn Switch 2 on" onClick="button('n1')" >
+<input type="button" value="Turn Switch 2 off" onClick="button('o1')" >
+</form>
+
+</div>
+<div class="box">
+<h3><font color="white"> Control Switch 2</font> </h3>
+<form name="remoteform" method="post">
+<input type="hidden" name="code">
+<input type="button" value="Turn Switch on" onClick="button('l2')" >
+<input type="button" value="Turn Switch off" onClick="button('m2')" >
+
+</form>
+
+<form name="remoteform" method="post">
+<input type="hidden" name="code">
+<input type="button" value="Turn Switch 2 on" onClick="button('n2')" >
+<input type="button" value="Turn Switch 2 off" onClick="button('o2')" >
+</form>
+
+</div>
+</div>
+</div>
+
+<body>
