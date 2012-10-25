@@ -38,31 +38,37 @@ $(document).ready(function(){
 
 //click handling
   $('#lights1 > a').click(function(){
-    onClick="button('a')" 
+    button('a');
     $("#llights_on").toggle();
     $("#llights_off").toggle();
   });
   $('#door1 > a').click(function(){
+    button('g');
     $("#door_on").toggle();
     $("#door_off").toggle();
   });
   $('#music1 > a').click(function(){ 
+    button('h');
     $("#music_on").toggle();
     $("#music_off").toggle();
   });
   $('#curtains1 > a').click(function(){ 
+    button('f');
     $("#curtains_opened").toggle();
     $("#curtains_closed").toggle();
   });
   $('#tv1 > a').click(function(){  
+    button('i');
     $("#tv_on").toggle();
     $("#tv_off").toggle();
   });
   $('#pir1 > a').click(function(){ 
+    button('e');
     $("#pir_trigged").toggle();	
     $("#pir_untrigged").toggle();
   });
   $('#lights2 > a').click(function(){ 
+    button('b');
     $("#blights_on").toggle();
     $("#blights_off").toggle();
   });
